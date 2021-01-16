@@ -61,9 +61,8 @@ nav{
 }
 .logo {
     font-size: 30px;
-    position: fixed;
     color: white;
-    margin-right: 900px;
+	margin-left: 2vw;
 }
 
 

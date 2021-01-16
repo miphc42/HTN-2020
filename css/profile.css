@@ -126,9 +126,8 @@ nav ul li a:hover{
     margin-top: -35%;
     margin-left: -50%;
 	float:left;
-	width: 50%;
     width: 30vh;
-    height: 33vh;
+    height: 30vh;
     border-radius: 50%;
     /* border-radius: 50%; */
 }
