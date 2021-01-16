@@ -31,7 +31,9 @@ function initialize() {
     title: "Marker #2",
     position: map2.getCenter()
   });
+  if(user!=null){
   var user = localStorage.getItem('user').split(",");
+  }
   // console.log(user);
   marker = new google.maps.Marker({
     map: street,
