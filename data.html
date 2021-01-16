@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD_V0wwEJVg_JPGvP4zrnm62EPnmYbv1mI",
+    authDomain: "socialize-d5600.firebaseapp.com",
+    projectId: "socialize-d5600",
+    storageBucket: "socialize-d5600.appspot.com",
+    messagingSenderId: "22208221137",
+    appId: "1:22208221137:web:23e6ffbc410e185751daf0",
+    measurementId: "G-P4HSR3P70L"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var database = firebase.database();
+  function clicked(){
+      console.log(database)
+  }
+</script>
+</head>
+<body>
+    <button onclick="clicked()"></button>
+</body>
+
+<script src="/scripts/data.js"></script>
+</html>
