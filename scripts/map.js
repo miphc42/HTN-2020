@@ -63,10 +63,28 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-  '<div class="card">' +  
-     '<p id="callclick">Call</p>' + 
-     '<p id="viewprofile">View Profile</p>'
-   '</div>';
+    '<script src="https://static.opentok.com/v2/js/opentok.js" charset="utf-8"></script>'
+    '<script charset="utf-8">'
+      'var apiKey = "45828062";'
+      'var sessionId = "2_MX40NTgyODA2Mn5-MTYxMDgyMTE2NzMzOX44dTBZUjR6S1BRQ3gwdFlPWEV6MWdUN3h-UH4";'
+      'var token = "T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9OTMyOTExZjNiZjczOWIwMGYwM2Y3ZGU3NjA5ZDk5NGM3ZDBlYzQ4YTpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UWXhNRGd5TVRFMk56TXpPWDQ0ZFRCWlVqUjZTMUJSUTNnd2RGbFBXRVY2TVdkVU4zaC1VSDQmY3JlYXRlX3RpbWU9MTYxMDgyMTI2NiZub25jZT0wLjAzOTA5MDQwNzM3MTg1NTY1JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2MTA5MDc2NjY=";'
+
+      'var session = OT.initSession(apiKey, sessionId);'
+
+      'var publisher = OT.initPublisher();'
+      'session.connect(token, function(err) {'
+        'session.publish(publisher); '
+      '})'
+  
+// create subscriber
+    'session.on('streamCreated', function(event) {'
+      session.subscribe(event.stream);
+    });'
+    </script>
+  <p>Great work! You now have 2 clients publishing and subscribing. <br><strong>Click back to the previous Hello World tab in your browser to continue.</strong></p>
+  </body>
+  '<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">'
+'</html>';
   const infowindow_map = new google.maps.InfoWindow({
     content: contentString,
     pixelOffset: new google.maps.Size(0, -20)
@@ -80,23 +98,22 @@ function initialize() {
 
   marker.addListener("click", () => {
     infowindow_map.open(street, marker);
-    
   });
 
   document.getElementById('animate').onclick = function () {
     console.log("AAA")
-        marker.setPosition(fenway2);
+    marker.setPosition(fenway2);
   }
 
   document.getElementById('call').onclick = function call() {
     //VONAGE API HERE
+
   }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
   //    content: contentString,
   //    pixelOffset: new google.maps.Size(0, -48)
   // });
-
 }
 
 
