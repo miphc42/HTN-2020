@@ -135,6 +135,7 @@ function initialize() {
         }
       });
     }
+    
     i+=1;
     if(i==2){
     trueorfalse = false;
