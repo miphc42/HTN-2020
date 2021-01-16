@@ -82,12 +82,12 @@ body {
   display: flex;
 } */
 
-.OT_bar OT_edge-bar-item OT_mode-auto {
-  margin-top: 200px;
-  width: 100px;
-  height: 1000px;
-
+video {
+  object-fit: cover !important;
 }
+
+
+
 #videos {
   display: flex;
   flex-direction: row;
