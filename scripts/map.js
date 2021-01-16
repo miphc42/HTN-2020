@@ -217,3 +217,13 @@ function animateMarker(marker, coords, km_h)
     }
     goToPoint();
 }
+
+function getProfile() {
+  var user = localStorage.getItem('user').split(",");
+
+  console.log(user);
+
+  document.getElementById('profilepic').src = user[2];
+  document.getElementById('name').textContent = user[0];
+  document.getElementById('email').textContent = user[1];
+}

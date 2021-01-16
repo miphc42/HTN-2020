@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="css/profile.css" />
     <link rel="stylesheet" type="text/css" href="css/map.css" />
     <!-- The core Firebase JS SDK is always required and must be listed first -->
+
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
-
 
     <script src="scripts/map.js"></script>
 
@@ -28,19 +28,26 @@
             <img src="https://img.icons8.com/cotton/64/000000/messaging-.png" height="35px" width="35px"/>
         </a>
         <ul class="menu2">
-            <li><a id="nodec" href="profile.html">Profile</a></li>	
+          <div class="dropdown">
+            <li><button class="profilebtn" onmouseover="getProfile()">Profile</button></li>	
+            <div class="dropdown-content">
+              <img id="profilepic"></img>
+              <div id="name" class="textProfile"></div>
+              <div id="email" class="textProfile"></div>
+            </div>
+          </div>
             <li><a id="nodec" href="map.html">Map</a></li>	
         </ul>
         <a href="index.html" class="signup" onclick="signOut()" >Sign Out</a>  
          <!-- <div id="my-signin2" data-width="300" data-height="200" ></div> -->
         </nav>
-        <div id="floating-panel">
+        <!-- <div id="floating-panel">
           <input
             id="ani"
             type="button"
             value="Animate"
           />
-        </div>
+        </div> -->
     <div id="map"></div>
     <div id="pano"></div>
     <script src="scripts/data.js"></script>
