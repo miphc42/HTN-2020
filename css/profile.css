@@ -123,9 +123,10 @@ nav ul li a:hover{
 }
 #pfp{
 	border:5px solid  #1db096;  
-    margin-top: 10%;
-    margin-left: -20%;
-    float:left;
+    margin-top: -35%;
+    margin-left: -50%;
+	float:left;
+	width: 50%;
     width: 30vh;
     height: 33vh;
     border-radius: 50%;
@@ -134,22 +135,27 @@ nav ul li a:hover{
 /* #email{
     margin-top: 30%;
 } */
-
+p {
+	margin: 0;
+	
+}
 #listprofile {
-    margin-top: 5%;
-    margin-left: -6%;
+    margin-top: -40%;
+    margin-left: 20%;
     /* float: right; */
     /* margin-left: 30%;
     margin-top: 0%; */
-     display: inline;
+    /* display: inline; */
     font-size: 200%;
-    line-height: 0.3em;
-    float: left;
+    line-height: 2em;
+	float: right;
+	width: 50%;
     margin-bottom: 0;
     padding-bottom: 0;
     color: #f9f9f9;
 }
 #followers{
+	margin-top: -30%;
 	float: right;
 	width: 50%;
 	font-size: 3vh;
@@ -159,9 +165,10 @@ nav ul li a:hover{
 }
 
 #email{
-    font-size: 4vh;
+    font-size: 3vh;
 }
 #friends{
+	margin-top: -30%;
 	font-size: 3vh;
 	float: left;
 	width: 50%;

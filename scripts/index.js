@@ -33,7 +33,6 @@ function renderButton() {
     'height': 50,
     'longtitle': true,
     'theme': 'dark',
-    'redirect_uri': 'http://localhost:5500/profile.html',
     'onsuccess': onSuccess,
     'onfailure': onFailure
   });
