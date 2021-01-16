@@ -49,7 +49,7 @@ body {
   margin-left: -100px;
 }
 
-#callclick, #viewprofile:hover{
+#callclick:hover, #viewprofile:hover{
   color: aqua;
 }
 

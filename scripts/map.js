@@ -32,16 +32,36 @@ function initialize() {
     position: map2.getCenter()
   });
   if(user!=null){
-  var user = localStorage.getItem('user').split(",");
+  
   }
-  // console.log(user);
-  marker = new google.maps.Marker({
-    map: street,
-    icon: user[2],
-    title: "Marker #2",
-    position: map2.getCenter(),
-    pixelOffset: new google.maps.Size(0, -90)
-  });
+  var user = localStorage.getItem('user')
+
+  if(user==null){
+    marker = new google.maps.Marker({
+      map: street,
+      title: "Marker #2",
+      position: map2.getCenter(),
+      pixelOffset: new google.maps.Size(0, -90)
+    });
+  } else {
+    var user = localStorage.getItem('user').split(",");
+    marker = new google.maps.Marker({
+      map: street,
+      icon: user[2],
+      title: "Marker #2",
+      position: map2.getCenter(),
+      pixelOffset: new google.maps.Size(0, -90)
+    });
+
+  }
+  // // console.log(user);
+  // marker = new google.maps.Marker({
+  //   map: street,
+  //   icon: user[2],
+  //   title: "Marker #2",
+  //   position: map2.getCenter(),
+  //   pixelOffset: new google.maps.Size(0, -90)
+  // });
   var contentString = 
   '<div class="card">' +  
      '<p id="callclick">Call</p>' + 
