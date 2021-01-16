@@ -63,11 +63,9 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-  '<div id="callclick">'+
-    '<div id="videos">'+
-      '<div id="subscriber"></div>'+
-      '<div id="publisher"></div>'+
-    '</div>'+
+  '<div id="videos" style="width: 500px; height: 400px;">'+
+    '<div id="subscriber"></div>'+
+    '<div id="publisher"></div>'+
   '</div>';
   const infowindow_map = new google.maps.InfoWindow({
     content: contentString,
@@ -82,47 +80,52 @@ function initialize() {
 
   marker.addListener("click", () => {
     infowindow_map.open(street, marker);
-  });
-
-  document.getElementById('animate').onclick = function () {
-    console.log("AAA")
-    marker.setPosition(fenway2);
-  }
-
-  document.getElementById('callclick').onclick = function call() {
-
     var apiKey = '45828062';
     var sessionId = '2_MX40NTgyODA2Mn5-MTYxMDgyMjM3ODk4Mn5KRDJOWm5NeWpJc2pjbkRneE1kRU1zVXZ-UH4';
     var token = 'T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9MGU2N2ZmYjFjYzUyZWU1YWMzYWMxZGEyZWM4Y2E4ODYwZmQ4OTg3OTpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UWXhNRGd5TWpNM09EazRNbjVLUkRKT1dtNU5lV3BKYzJwamJrUm5lRTFrUlUxelZYWi1VSDQmY3JlYXRlX3RpbWU9MTYxMDgyMzIwMyZub25jZT0wLjA1OTY2ODI2NjM4ODA3NTIxJnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2MTA5MDk2MDM=';
 
-    var session = OT.initSession(apiKey, sessionId);
-
-  // Subscribe to a newly created stream
-
-  // Create a publisher
-    var publisher = OT.initPublisher('publisher', {
-      insertMode: 'append',
-      width: '100%',
-      height: '100%'
-    }, handleError);
-
-    // Connect to the session
-    session.connect(token, function(error) {
-      // If the connection is successful, publish to the session
+    function handleError(error) {
       if (error) {
-        handleError(error);
-      } else {
-        session.publish(publisher, handleError);
+        alert(error.message);
       }
-    });
+    }
     
-    session.on('streamCreated', function(event) {
-      session.subscribe(event.stream, 'subscriber', {
+    // (optional) add server code here
+    initializeSession();
+    
+    function initializeSession() {
+      var session = OT.initSession(apiKey, sessionId);
+    
+      // Subscribe to a newly created stream
+      session.on('streamCreated', function(event) {
+        session.subscribe(event.stream, 'subscriber', {
+          insertMode: 'append',
+          width: '100%',
+          height: '100%'
+        }, handleError);
+      });
+    
+      // Create a publisher
+      var publisher = OT.initPublisher('publisher', {
         insertMode: 'append',
         width: '100%',
         height: '100%'
       }, handleError);
-    });
+    
+      // Connect to the session
+      session.connect(token, function(error) {
+        // If the connection is successful, initialize a publisher and publish to the session
+        if (error) {
+          handleError(error);
+        } else {
+          session.publish(publisher, handleError);
+        }
+      });
+    }
+  });
+
+  document.getElementById('animate').onclick = function () {
+    marker.setPosition(fenway2);
   }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
@@ -130,6 +133,13 @@ function initialize() {
   //    pixelOffset: new google.maps.Size(0, -48)
   // });
 }
+
+function handleError(error) {
+  if (error) {
+    alert(error.message);
+  }
+}
+
 
 var startPos = fenway;
 var speed = 50; // km/h
@@ -188,5 +198,3 @@ function animateMarker(marker, coords, km_h)
     }
     goToPoint();
 }
-
-
