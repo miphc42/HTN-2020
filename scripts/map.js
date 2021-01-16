@@ -63,7 +63,7 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-  '<div id="videos" style="width: 500px; height: 400px;">'+
+  '<div id="videos" style="width: 500px; height: 500px;">'+
     '<div id="subscriber"></div>'+
     '<div id="publisher"></div>'+
   '</div>';
@@ -101,7 +101,7 @@ function initialize() {
         session.subscribe(event.stream, 'subscriber', {
           insertMode: 'append',
           width: '100%',
-          height: '100%'
+          height: '1-0%'
         }, handleError);
       });
     
