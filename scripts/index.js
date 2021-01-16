@@ -19,7 +19,7 @@ function onSuccess(googleUser) {
   localStorage.setItem('out?', false);
   console.log(global_var.name);
   if (tof){
-      window.location.href = 'profile.html';
+      window.location.href = 'map.html';
   }
 }
 

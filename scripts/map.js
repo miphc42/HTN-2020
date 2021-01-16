@@ -1,6 +1,6 @@
 var map1, map2
 
-const fenway = { lat: 42.345573, lng: -71.098326 };
+const fenway = { lat: 43.474803, lng: -80.538330 };
 const fenway2 = { lat: 42.345958, lng: -71.098530 };
 var marker;
 function initialize() {
@@ -54,6 +54,16 @@ function initialize() {
     });
 
   }
+
+
+
+
+  
+
+  // panorama.addListener("position_changed", () => {
+    
+  //   positionCell.firstChild.nodeValue = panorama.getPosition() + "";
+  // });
   // // console.log(user);
   // marker = new google.maps.Marker({
   //   map: street,
@@ -63,7 +73,7 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-  '<div id="videos" style="width: 500px; height: 500px;">'+
+  '<div id="videos" style="width: 500px; height: 250px;">'+
     '<div id="subscriber"></div>'+
     '<div id="publisher"></div>'+
   '</div>';
@@ -101,7 +111,7 @@ function initialize() {
         session.subscribe(event.stream, 'subscriber', {
           insertMode: 'append',
           width: '100%',
-          height: '1-0%'
+          height: '100%'
         }, handleError);
       });
     
@@ -124,9 +134,9 @@ function initialize() {
     }
   });
 
-  document.getElementById('animate').onclick = function () {
-    marker.setPosition(fenway2);
-  }
+  // document.getElementById('ani').onclick = function () {
+  //   marker.setPosition(fenway2);
+  // }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
   //    content: contentString,
@@ -197,4 +207,14 @@ function animateMarker(marker, coords, km_h)
         moveMarker();
     }
     goToPoint();
+}
+
+function getProfile() {
+  var user = localStorage.getItem('user').split(",");
+
+  console.log(user);
+
+  document.getElementById('profilepic').src = user[2];
+  document.getElementById('name').textContent = user[0];
+  document.getElementById('email').textContent = user[1];
 }
