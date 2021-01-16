@@ -54,6 +54,16 @@ function initialize() {
     });
 
   }
+
+
+
+
+  
+
+  // panorama.addListener("position_changed", () => {
+    
+  //   positionCell.firstChild.nodeValue = panorama.getPosition() + "";
+  // });
   // // console.log(user);
   // marker = new google.maps.Marker({
   //   map: street,
@@ -101,7 +111,7 @@ function initialize() {
         session.subscribe(event.stream, 'subscriber', {
           insertMode: 'append',
           width: '100%',
-          height: '1-0%'
+          height: '100%'
         }, handleError);
       });
     
@@ -124,9 +134,9 @@ function initialize() {
     }
   });
 
-  document.getElementById('animate').onclick = function () {
-    marker.setPosition(fenway2);
-  }
+  // document.getElementById('ani').onclick = function () {
+  //   marker.setPosition(fenway2);
+  // }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
   //    content: contentString,

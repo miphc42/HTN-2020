@@ -28,8 +28,9 @@
 
 
 
-  function writeUserData() {
-    firebase.database().ref('/').set({
-      username:"Ashish"
-    });
-  }
+ document.getElementById('ani').onclick = function () {
+    console.log("AAA")
+    firebase.database().ref().child("Ashish").set("Some value")
+    firebase.database().ref().child("Philip").set("Some value")
+    
+}
