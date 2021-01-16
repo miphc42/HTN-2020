@@ -37,7 +37,7 @@ function initialize() {
   // console.log(user);
   marker = new google.maps.Marker({
     map: street,
-    // icon: user[2],
+    icon: user[2],
     title: "Marker #2",
     position: map2.getCenter(),
     pixelOffset: new google.maps.Size(0, -90)
