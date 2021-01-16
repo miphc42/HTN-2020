@@ -77,14 +77,10 @@ function initialize() {
       '})'
   
 // create subscriber
-    'session.on('streamCreated', function(event) {'
-      session.subscribe(event.stream);
-    });'
-    </script>
-  <p>Great work! You now have 2 clients publishing and subscribing. <br><strong>Click back to the previous Hello World tab in your browser to continue.</strong></p>
-  </body>
-  '<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">'
-'</html>';
+    'session.on("streamCreated", function(event) {'
+      'session.subscribe(event.stream);'
+    '});'
+    '</script>'
   const infowindow_map = new google.maps.InfoWindow({
     content: contentString,
     pixelOffset: new google.maps.Size(0, -20)
