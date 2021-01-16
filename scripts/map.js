@@ -44,8 +44,8 @@ function initialize() {
   });
   var contentString = 
   '<div class="card">' +  
-     '<p>Call</p>' + 
-     '<p>View Profile</p>'
+     '<p id="callclick">Call</p>' + 
+     '<p id="viewprofile">View Profile</p>'
    '</div>';
   const infowindow_map = new google.maps.InfoWindow({
     content: contentString,
@@ -68,6 +68,9 @@ function initialize() {
         marker.setPosition(fenway2);
   }
 
+  document.getElementById('call').onclick = function call() {
+    //VONAGE API HERE
+  }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
   //    content: contentString,
@@ -75,6 +78,9 @@ function initialize() {
   // });
 
 }
+
+
+
 
 
 
