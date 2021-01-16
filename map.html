@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh_V6eZVCkL6fpakRdUwQLVB-THBQAl_0&libraries=geometry&callback=initialize&libraries=&v=weekly"
+      defer
+    ></script>
+    <link rel="stylesheet" type="text/css" href="css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="css/map.css" />
+    <script src="scripts/map.js"></script>
+
+  </head>
+  <body>
+     <nav id="nav2">
+        <a id="nodec" href="index.html" class="logo">
+            Socialize 
+            <img src="https://img.icons8.com/cotton/64/000000/messaging-.png" height="35px" width="35px"/>
+        </a>
+        <ul class="menu2">
+            <li><a id="nodec" href="profile.html">Profile</a></li>	
+            <li><a id="nodec" href="map.html">Map</a></li>	
+        </ul>
+        <a href="index.html" class="signup" onclick="signOut()" >Sign Out</a>  
+         <!-- <div id="my-signin2" data-width="300" data-height="200" ></div> -->
+        </nav>
+        <div id="floating-panel">
+          <input
+            id="animate"
+            type="button"
+            value="Animate"
+            onclick="animated()"
+          />
+        </div>
+    <div id="map"></div>
+    <div id="pano"></div>
+  </body>
+</html>

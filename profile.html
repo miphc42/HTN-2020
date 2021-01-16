@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="722298456324-188oee4kbfmg5fhm0hmrufpvd78fsi1f.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Profile</title>
+</head>
+<body>
+    <nav id="nav2">
+        <a href="index.html" class="logo">
+            Socialize 
+            <img src="https://img.icons8.com/cotton/64/000000/messaging-.png" height="35px" width="35px"/>
+        </a>
+
+    <ul class="menu2">
+            <li><a href="profile.html">Profile</a></li>	
+            <li><a href="map.html">Map</a></li>	
+        </ul>
+        <a href="index.html" class="signup" onclick="signOut()" >Sign Out</a>
+        </nav>
+        <div class="card-box">
+            <div id="border">
+                <img src="" id="pfp"  style="width:200px">
+            </div>           
+            <br>
+
+            <ul id="listprofile">
+                <li>
+                    <p id="name"></p>
+                </li>
+                <li>
+                    <p id="email"></p>
+                </li>
+                <br>
+                <li id="block-display">
+                    <p id="friends">45 Friends</p> 
+                    <p id="followers">15 Followers</p> 
+                </li>
+            </ul>
+        </div>
+
+    
+    <script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
+        });
+        localStorage.setItem('out?', true);
+    }
+    </script>
+
+    <script src="scripts/profile.js"></script>
+</body>
+</html>
