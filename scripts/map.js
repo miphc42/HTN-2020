@@ -87,9 +87,12 @@ function initialize() {
   
   // homeControlDiv.index = 1;
   // map2.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
-
+  var trueorfalse = true;
+  var i = 0;
   marker.addListener("click", () => {
     infowindow_map.open(street, marker);
+    if(trueorfalse){
+    
     var apiKey = '45828062';
     var sessionId = '2_MX40NTgyODA2Mn5-MTYxMDgyMjM3ODk4Mn5KRDJOWm5NeWpJc2pjbkRneE1kRU1zVXZ-UH4';
     var token = 'T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9MGU2N2ZmYjFjYzUyZWU1YWMzYWMxZGEyZWM4Y2E4ODYwZmQ4OTg3OTpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UWXhNRGd5TWpNM09EazRNbjVLUkRKT1dtNU5lV3BKYzJwamJrUm5lRTFrUlUxelZYWi1VSDQmY3JlYXRlX3RpbWU9MTYxMDgyMzIwMyZub25jZT0wLjA1OTY2ODI2NjM4ODA3NTIxJnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2MTA5MDk2MDM=';
@@ -132,6 +135,12 @@ function initialize() {
         }
       });
     }
+    
+    i+=1;
+    if(i==2){
+    trueorfalse = false;
+    }
+  }
   });
 
   // document.getElementById('ani').onclick = function () {
