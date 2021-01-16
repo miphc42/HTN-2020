@@ -63,24 +63,12 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-    '<script src="https://static.opentok.com/v2/js/opentok.js" charset="utf-8"></script>'
-    '<script charset="utf-8">'
-      'var apiKey = "45828062";'
-      'var sessionId = "2_MX40NTgyODA2Mn5-MTYxMDgyMTE2NzMzOX44dTBZUjR6S1BRQ3gwdFlPWEV6MWdUN3h-UH4";'
-      'var token = "T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9OTMyOTExZjNiZjczOWIwMGYwM2Y3ZGU3NjA5ZDk5NGM3ZDBlYzQ4YTpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UWXhNRGd5TVRFMk56TXpPWDQ0ZFRCWlVqUjZTMUJSUTNnd2RGbFBXRVY2TVdkVU4zaC1VSDQmY3JlYXRlX3RpbWU9MTYxMDgyMTI2NiZub25jZT0wLjAzOTA5MDQwNzM3MTg1NTY1JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2MTA5MDc2NjY=";'
-
-      'var session = OT.initSession(apiKey, sessionId);'
-
-      'var publisher = OT.initPublisher();'
-      'session.connect(token, function(err) {'
-        'session.publish(publisher); '
-      '})'
-  
-// create subscriber
-    'session.on("streamCreated", function(event) {'
-      'session.subscribe(event.stream);'
-    '});'
-    '</script>'
+  '<div id="callclick">'+
+    '<div id="videos">'+
+      '<div id="subscriber"></div>'+
+      '<div id="publisher"></div>'+
+    '</div>'+
+  '</div>';
   const infowindow_map = new google.maps.InfoWindow({
     content: contentString,
     pixelOffset: new google.maps.Size(0, -20)
@@ -101,9 +89,40 @@ function initialize() {
     marker.setPosition(fenway2);
   }
 
-  document.getElementById('call').onclick = function call() {
-    //VONAGE API HERE
+  document.getElementById('callclick').onclick = function call() {
 
+    var apiKey = '45828062';
+    var sessionId = '2_MX40NTgyODA2Mn5-MTYxMDgyMjM3ODk4Mn5KRDJOWm5NeWpJc2pjbkRneE1kRU1zVXZ-UH4';
+    var token = 'T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9MGU2N2ZmYjFjYzUyZWU1YWMzYWMxZGEyZWM4Y2E4ODYwZmQ4OTg3OTpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UWXhNRGd5TWpNM09EazRNbjVLUkRKT1dtNU5lV3BKYzJwamJrUm5lRTFrUlUxelZYWi1VSDQmY3JlYXRlX3RpbWU9MTYxMDgyMzIwMyZub25jZT0wLjA1OTY2ODI2NjM4ODA3NTIxJnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE2MTA5MDk2MDM=';
+
+    var session = OT.initSession(apiKey, sessionId);
+
+  // Subscribe to a newly created stream
+
+  // Create a publisher
+    var publisher = OT.initPublisher('publisher', {
+      insertMode: 'append',
+      width: '100%',
+      height: '100%'
+    }, handleError);
+
+    // Connect to the session
+    session.connect(token, function(error) {
+      // If the connection is successful, publish to the session
+      if (error) {
+        handleError(error);
+      } else {
+        session.publish(publisher, handleError);
+      }
+    });
+    
+    session.on('streamCreated', function(event) {
+      session.subscribe(event.stream, 'subscriber', {
+        insertMode: 'append',
+        width: '100%',
+        height: '100%'
+      }, handleError);
+    });
   }
   // POP UP WINDOW FOR ONCLICK ON MARKER
   // const infowindow_streetview = new google.maps.InfoWindow({
@@ -111,26 +130,6 @@ function initialize() {
   //    pixelOffset: new google.maps.Size(0, -48)
   // });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var startPos = fenway;
 var speed = 50; // km/h
