@@ -49,6 +49,9 @@ body {
   margin-left: -100px;
 }
 
+#callclick, #viewprofile:hover{
+  color: aqua;
+}
 
 .gm-style .gm-style-iw {
     background-color: #fff !important;
