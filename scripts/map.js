@@ -1,6 +1,6 @@
 var map1, map2
 
-const fenway = { lat: 42.345573, lng: -71.098326 };
+const fenway = { lat: 43.474803, lng: -80.538330 };
 const fenway2 = { lat: 42.345958, lng: -71.098530 };
 var marker;
 function initialize() {
@@ -73,7 +73,7 @@ function initialize() {
   //   pixelOffset: new google.maps.Size(0, -90)
   // });
   var contentString = 
-  '<div id="videos" style="width: 500px; height: 500px;">'+
+  '<div id="videos" style="width: 500px; height: 250px;">'+
     '<div id="subscriber"></div>'+
     '<div id="publisher"></div>'+
   '</div>';
