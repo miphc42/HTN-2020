@@ -53,6 +53,7 @@ body {
   color: aqua;
 }
 
+
 /* .gm-style .gm-style-iw {
     background-color: #fff !important;
     top: 0 !important;
@@ -81,6 +82,12 @@ body {
   display: flex;
 } */
 
+.OT_bar OT_edge-bar-item OT_mode-auto {
+  margin-top: 200px;
+  width: 100px;
+  height: 1000px;
+
+}
 #videos {
   display: flex;
   flex-direction: row;
