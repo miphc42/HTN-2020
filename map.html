@@ -9,6 +9,15 @@
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/profile.css" />
     <link rel="stylesheet" type="text/css" href="css/map.css" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+
+<script src="scripts/data.js"></script>
     <script src="scripts/map.js"></script>
 
   </head>
@@ -30,7 +39,7 @@
             id="animate"
             type="button"
             value="Animate"
-            onclick="animated()"
+            onclick="writeUserData()"
           />
         </div>
     <div id="map"></div>

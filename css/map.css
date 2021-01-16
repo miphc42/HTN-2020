@@ -54,21 +54,21 @@ body {
 }
 
 .gm-style .gm-style-iw {
-    background-color: #fff !important;
-    top: 0 !important;
-    left: 0 !important;
+    /* background-color: #fff; */
+    top: 0 ;
+    left: 0 ;
     /* width: 50% !important;
     height: 50% !important; */
-    min-height: 70px !important;
+    min-height: 70px ;
     padding-top: 2vh;
     padding-bottom: 1.8vh;
     /* margin-bottom: 50px; */
-    display: block !important;
+    display: block ;
 }    
 
 .gm-style div div div div div div div div {
-    background-color: #fff !important;
-    padding: 0;
+    /* background-color: #fff; */
+    padding: 200px;
     margin: 0;
     padding: 0;
     top: 0;
@@ -76,6 +76,12 @@ body {
     font-size: 16px;
 } 
 
+.OT_bar OT_edge-bar-item OT_mode-auto {
+  margin-top: 200px;
+  width: 100px;
+  height: 1000px;
+
+}
 #videos {
   display: flex;
   flex-direction: row;
