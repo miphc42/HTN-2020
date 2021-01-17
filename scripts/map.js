@@ -1,3 +1,5 @@
+
+
 var map1, map2
 
 const fenway = { lat: 43.474803, lng: -80.538330 };
@@ -56,14 +58,80 @@ function initialize() {
   }
 
 
+  var firebaseConfig = {
+    apiKey: "AIzaSyDh_V6eZVCkL6fpakRdUwQLVB-THBQAl_0",
+    authDomain: "nocovid-301815.firebaseapp.com",
+    databaseURL: "https://nocovid-301815-default-rtdb.firebaseio.com",
+    projectId: "nocovid-301815",
+    storageBucket: "nocovid-301815.appspot.com",
+    messagingSenderId: "722298456324",
+    appId: "1:722298456324:web:a0a259a10e817a8c772851",
+    measurementId: "G-V6Q03XMF33"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+    // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  // var config = {
+  //   apiKey: "apiKey",
+  //   authDomain: "projectId.firebaseapp.com",
+  //   databaseURL: "https://databaseName.firebaseio.com",
+  //   storageBucket: "bucket.appspot.com"
+  // };
+  // firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database().ref();
 
 
-  
+  document.getElementById('ani').onclick = function () {
+    firebase.database().ref().child('Ashish').set('AAA')
+    firebase.database().ref().child('Philip').set('AAA')
+  }
 
-  // panorama.addListener("position_changed", () => {
-    
-  //   positionCell.firstChild.nodeValue = panorama.getPosition() + "";
-  // });
+  var username = localStorage.getItem('user').split(",")[0]
+  var current,marker_pos;
+  if(username[0] == 'A'){
+    current = 'Ashish';
+    marker_pos = 'Philip';
+  } else {
+    current = 'Philip';
+    marker_pos = 'Ashish'
+  }
+
+  // GETTING THE LOCAtION OF THE OTHER PERSON!!!
+  var REFERENCEEE = firebase.database().ref().child(marker_pos);
+  REFERENCEEE.on('value', (snapshot) => {
+      console.log(snapshot.val())
+      console.log("OOGGAA")
+      var shot = snapshot.val().toString().split(",");
+      console.log(shot)
+      latitude = parseFloat(shot[0].toString().replace("(", "").replace(")", ""));
+      longitude = parseFloat(shot[1].toString().replace("(", "").replace(")", "").replace(" ", ""));
+      console.log(latitude);
+      ltlng = {lat: latitude, lng: longitude}
+      marker.setPosition(ltlng)
+
+    });
+
+
+
+  firebase.database().ref().child(current).once('value').then((snapshot) =>{
+       x = snapshot.val();
+       console.log("AAAAAAAAAAAAAAAAAAAAAA", snapshot.val())
+  })
+  //setting database as the position on movement event
+  street.addListener("position_changed", () => {
+    console.log("AABA")
+    console.log(street.getPosition().toString())
+    var x;
+
+    // console.log(x);
+    firebase.database().ref().child(current).set(street.getPosition().toString())
+    // firebase.database().ref().child('Philip').set('AAA')
+    // positionCell.firstChild.nodeValue = panorama.getPosition() + "";
+  });
   // // console.log(user);
   // marker = new google.maps.Marker({
   //   map: street,
