@@ -1,4 +1,20 @@
 var tof = false;
+window.onload = function(){
+  getLocation();
+}
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+  localStorage.setItem('mylocation', [position.coords.latitude, position.coords.longitude]);
+  console.log("Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude);
+}
 var out = localStorage.getItem('out?');
 window.global_var = {
     name: "a",
@@ -12,6 +28,7 @@ function onSuccess(googleUser) {
  
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   var profile = googleUser.getBasicProfile();
+  
   // window.global_var.name = googleUser.getBasicProfile().getName();
   // window.global_var.email = googleUser.getBasicProfile().getEmail();
   var user = [profile.getName(), profile.getEmail(), profile.getImageUrl()];

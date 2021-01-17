@@ -1,8 +1,10 @@
-
-
 var map1, map2
-
-const fenway = { lat: 43.474803, lng: -80.538330 };
+var loc = localStorage.getItem('mylocation').split(",");
+console.log(loc[0].toString().replace("(", "").replace(")", ""));
+latitude = parseFloat(loc[0]);
+longitude = parseFloat(loc[1].toString().replace(" ", ""));
+console.log(latitude, longitude);
+const fenway = { lat: 43.474350, lng: -80.538026 };
 const fenway2 = { lat: 42.345958, lng: -71.098530 };
 var marker;
 function initialize() {
@@ -30,7 +32,8 @@ function initialize() {
   map2 = new google.maps.Map(mapElement2, mapOptions2);
   var markerMap2 = new google.maps.Marker({
     map: map2,
-    title: "Marker #2",
+    title: "My Location",
+    // animation:google.maps.Animation.BOUNCE,
     position: map2.getCenter()
   });
   if(user!=null){
@@ -41,23 +44,37 @@ function initialize() {
   if(user==null){
     marker = new google.maps.Marker({
       map: street,
-      title: "Marker #2",
+      title: "User",
       position: map2.getCenter(),
       pixelOffset: new google.maps.Size(0, -90)
     });
   } else {
     var user = localStorage.getItem('user').split(",");
+    console.log(user[2]);
     marker = new google.maps.Marker({
       map: street,
-      icon: user[2],
-      title: "Marker #2",
+      icon: {
+        url: "https://lh3.googleusercontent.com/a-/AOh14Gh1tY_2muCRjY8UtyrxHhQTIsCnF_FZbl43co-P2w=s96-c",
+  
+      },
+      title: user[0],
       position: map2.getCenter(),
       pixelOffset: new google.maps.Size(0, -90)
     });
 
   }
 
-
+  // var myCity = new google.maps.Circle({
+  //   center:map2.getCenter(),
+  //   map: street,
+  //   radius:20000,
+  //   strokeColor:"#0000FF",
+  //   strokeOpacity:0.8,
+  //   strokeWeight:2,
+  //   fillColor:"#0000FF",
+  //   fillOpacity:0.4,
+  //   icon: user[2]
+  // });
   var firebaseConfig = {
     apiKey: "AIzaSyDh_V6eZVCkL6fpakRdUwQLVB-THBQAl_0",
     authDomain: "nocovid-301815.firebaseapp.com",
@@ -85,10 +102,10 @@ function initialize() {
   var database = firebase.database().ref();
 
 
-  document.getElementById('ani').onclick = function () {
-    firebase.database().ref().child('Ashish').set('AAA')
-    firebase.database().ref().child('Philip').set('AAA')
-  }
+  // document.getElementById('ani').onclick = function () {
+  //   firebase.database().ref().child('Ashish').set('AAA')
+  //   firebase.database().ref().child('Philip').set('AAA')
+  // }
 
   var username = localStorage.getItem('user').split(",")[0]
   var current,marker_pos;
