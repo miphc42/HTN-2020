@@ -3,7 +3,7 @@
   <head>
     <title></title>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh_V6eZVCkL6fpakRdUwQLVB-THBQAl_0&libraries=geometry&callback=initialize&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh_V6eZVCkL6fpakRdUwQLVB-THBQAl_0&libraries=geometry,places,visualization&callback=initialize&libraries=&v=weekly"
       defer
     ></script>
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
@@ -18,7 +18,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
 
-    <script src="scripts/map.js"></script>
+    
 
   </head>
   <body>
@@ -41,15 +41,16 @@
         <a href="index.html" class="signup" onclick="signOut()" >Sign Out</a>  
          <!-- <div id="my-signin2" data-width="300" data-height="200" ></div> -->
         </nav>
-        <!-- <div id="floating-panel">
+        <div id="floating-panel">
           <input
             id="ani"
             type="button"
             value="Animate"
           />
-        </div> -->
+        </div>
     <div id="map"></div>
     <div id="pano"></div>
+    <script src="scripts/map.js"></script>
     <script src="scripts/data.js"></script>
   </body>
 </html>

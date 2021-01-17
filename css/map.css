@@ -6,6 +6,9 @@ body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
 }
+.gm-svpc{
+  background-color: black !important;
+}
 /* 
 #nodec{
     margin-bottom: 2vh;
